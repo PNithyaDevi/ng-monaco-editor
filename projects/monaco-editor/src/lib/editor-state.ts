@@ -12,7 +12,6 @@ export function editorStateProviderFactory(config: any) {
   editorState.loadedMonaco = new Promise<void>(function(resolve: any) {
     const baseUrl = config.baseUrl || './assets';
     const onGotAmdLoader = function() {
-      // Load monaco
       (window as any).require.config({ paths: {vs: `${baseUrl}/monaco/vs`} });
       (window as any).require(['vs/editor/editor.main'], function() {
         if (typeof config.onMonacoLoad === 'function') {
